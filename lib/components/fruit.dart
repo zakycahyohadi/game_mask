@@ -53,7 +53,7 @@ class Fruit extends SpriteAnimationComponent
       collected = true;
       
       if (game.playSounds) {
-        FlameAudio.play('pickupCoin.wav', volume: game.soundVolume);
+        FlameAudio.play('collect_fruit.wav', volume: game.soundVolume);
       }
 
       // ADD AURA EFFECT HERE
