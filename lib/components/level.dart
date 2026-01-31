@@ -6,7 +6,7 @@ import 'package:pixel_adventure/components/background_tile.dart';
 import 'package:pixel_adventure/components/checkpoint.dart';
 import 'package:pixel_adventure/components/chicken.dart';
 import 'package:pixel_adventure/components/collision_block.dart';
-import 'package:pixel_adventure/components/fruit.dart';
+import 'package:pixel_adventure/components/mask.dart';
 import 'package:pixel_adventure/components/player.dart';
 import 'package:pixel_adventure/components/saw.dart';
 import 'package:pixel_adventure/pixel_adventure.dart';
@@ -61,13 +61,13 @@ class Level extends World with HasGameRef<PixelAdventure> {
             player.scale.x = 1;
             add(player);
             break;
-          case 'Fruit':
-            final fruit = Fruit(
-              fruit: spawnPoint.name,
+          case 'Mask':
+            final mask = Mask(
+              mask: spawnPoint.name,
               position: Vector2(spawnPoint.x, spawnPoint.y),
               size: Vector2(spawnPoint.width, spawnPoint.height),
             );
-            add(fruit);
+            add(mask);
             break;
           case 'Saw':
             final isVertical = spawnPoint.properties.getValue('isVertical');

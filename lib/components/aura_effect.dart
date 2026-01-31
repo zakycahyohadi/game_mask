@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 import 'dart:ui';
 
@@ -5,6 +6,8 @@ import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
 
 class AuraEffect extends PositionComponent {
+  // TIDAK perlu HasGameReference
+  
   final Color color;
   final double duration;
   double _elapsed = 0;
@@ -20,7 +23,6 @@ class AuraEffect extends PositionComponent {
           size: size,
           anchor: Anchor.center,
         ) {
-    // Create particles
     for (int i = 0; i < 20; i++) {
       _particles.add(_Particle(
         angle: _random.nextDouble() * 2 * pi,
@@ -43,7 +45,6 @@ class AuraEffect extends PositionComponent {
       removeFromParent();
     }
 
-    // Update particles
     for (var particle in _particles) {
       particle.update(dt);
     }
@@ -57,7 +58,6 @@ class AuraEffect extends PositionComponent {
         ? max(0.0, 0.5 - ((_elapsed - (duration - 0.5)) / 0.5) * 0.5)
         : 0.5;
 
-    // Draw main glow
     final paint = Paint()
       ..color = color.withOpacity(opacity * 0.6)
       ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 10);
@@ -68,7 +68,6 @@ class AuraEffect extends PositionComponent {
       paint,
     );
 
-    // Draw inner bright core
     paint.color = color.withOpacity(opacity);
     paint.maskFilter = const MaskFilter.blur(BlurStyle.normal, 5);
     canvas.drawCircle(
@@ -77,7 +76,6 @@ class AuraEffect extends PositionComponent {
       paint,
     );
 
-    // Draw particles
     final particlePaint = Paint()..color = color.withOpacity(opacity);
     for (var particle in _particles) {
       final x = size.x / 2 + cos(particle.angle) * particle.distance;
@@ -105,7 +103,6 @@ class _Particle {
 
   void update(double dt) {
     distance += speed * dt;
-    // Oscillate outward
     angle += dt * 0.5;
   }
 }

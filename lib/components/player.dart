@@ -11,7 +11,7 @@ import 'package:pixel_adventure/components/checkpoint.dart';
 import 'package:pixel_adventure/components/chicken.dart';
 import 'package:pixel_adventure/components/collision_block.dart';
 import 'package:pixel_adventure/components/custom_hitbox.dart';
-import 'package:pixel_adventure/components/fruit.dart';
+import 'package:pixel_adventure/components/mask.dart';
 import 'package:pixel_adventure/components/saw.dart';
 import 'package:pixel_adventure/components/utils.dart';
 import 'package:pixel_adventure/pixel_adventure.dart';
@@ -67,57 +67,41 @@ class Player extends SpriteAnimationGroupComponent
 
   // Add these properties at the top of your Player class
 AuraEffect? currentAura;
-String? lastFruitCollected;
+String? lastMaskCollected;
 
-// Add this method to your Player class
-void addAura(String fruitName) {
-  // Remove old aura if exists
+void addAura(String maskName) {
   if (currentAura != null) {
     currentAura!.removeFromParent();
   }
 
-  // Determine color based on fruit type
   Color auraColor;
-  switch (fruitName.toLowerCase()) {
-    case 'apple':
+  switch (maskName.toLowerCase()) {
+    case 'red-mask':
       auraColor = Colors.red;
       break;
-    case 'banana':
-      auraColor = Colors.yellow;
-      break;
-    case 'cherry':
-      auraColor = const Color(0xFFFF1493); // Deep pink
-      break;
-    case 'kiwi':
-      auraColor = Colors.green;
-      break;
-    case 'orange':
-      auraColor = Colors.orange;
-      break;
-    case 'pineapple':
+    case 'gold-mask':
       auraColor = const Color(0xFFFFD700); // Gold
       break;
-    case 'strawberry':
-      auraColor = const Color(0xFFFF69B4); // Hot pink
+    case 'blue-mask':
+      auraColor = Colors.blue;
       break;
-    case 'melon':
-      auraColor = Colors.lightGreen;
+    case 'green-mask':
+      auraColor = Colors.green;
       break;
     default:
       auraColor = Colors.cyan;
   }
 
-  // Create new aura
   currentAura = AuraEffect(
     color: auraColor,
-    duration: 5.0, // Aura lasts 5 seconds
-    size: Vector2.all(80), // Size of the aura
+    duration: 5.0,
+    size: Vector2.all(80),
   );
 
   currentAura!.position = Vector2(width / 2, height / 2);
   add(currentAura!);
-  
-  lastFruitCollected = fruitName;
+
+  lastMaskCollected = maskName;
 }
 
 
@@ -191,7 +175,7 @@ void addAura(String fruitName) {
   void onCollisionStart(
       Set<Vector2> intersectionPoints, PositionComponent other) {
     if (!reachedCheckpoint) {
-      if (other is Fruit) other.collidedWithPlayer();
+      if (other is Mask) other.collidedWithPlayer(this);
       if (other is Saw) _respawn();
       if (other is Chicken) other.collidedWithPlayer();
       if (other is Checkpoint) _reachedCheckpoint();

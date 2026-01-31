@@ -33,17 +33,19 @@
  </layer>
  <objectgroup id="2" name="Spawnpoints">
   <object id="4" name="Player" type="Player" x="128" y="224" width="32" height="32"/>
-  <object id="21" name="Bananas" type="Fruit" x="80" y="80" width="32" height="32"/>
-  <object id="22" name="Orange" type="Fruit" x="80" y="128" width="32" height="32"/>
-  <object id="23" name="Apple" type="Fruit" x="80" y="176" width="32" height="32"/>
-  <object id="24" name="Cherries" type="Fruit" x="192" y="128" width="32" height="32"/>
-  <object id="25" name="Cherries" type="Fruit" x="224" y="128" width="32" height="32"/>
-  <object id="26" name="Cherries" type="Fruit" x="208" y="96" width="32" height="32"/>
-  <object id="27" name="Cherries" type="Fruit" x="336" y="160" width="32" height="32"/>
-  <object id="28" name="Cherries" type="Fruit" x="368" y="160" width="32" height="32"/>
-  <object id="29" name="Cherries" type="Fruit" x="352" y="128" width="32" height="32"/>
-  <object id="30" name="Kiwi" type="Fruit" x="480" y="128" width="32" height="32"/>
-  <object id="31" name="Kiwi" type="Fruit" x="480" y="176" width="32" height="32"/>
+  <object id="38" name="PlayerA" type="PlayerA" x="128" y="272" width="32" height="32"/>
+  <object id="39" name="PlayerB" type="PlayerB" x="480" y="272" width="32" height="32"/>
+  <object id="21" name="red-mask" type="Mask" x="80" y="80" width="32" height="32"/>
+  <object id="22" name="gold-mask" type="Mask" x="80" y="128" width="32" height="32"/>
+  <object id="23" name="blue-mask" type="Mask" x="80" y="176" width="32" height="32"/>
+  <object id="24" name="green-mask" type="Mask" x="192" y="128" width="32" height="32"/>
+  <object id="25" name="red-mask" type="Mask" x="224" y="128" width="32" height="32"/>
+  <object id="26" name="gold-mask" type="Mask" x="208" y="96" width="32" height="32"/>
+  <object id="27" name="blue-mask" type="Mask" x="336" y="160" width="32" height="32"/>
+  <object id="28" name="green-mask" type="Mask" x="368" y="160" width="32" height="32"/>
+  <object id="29" name="red-mask" type="Mask" x="352" y="128" width="32" height="32"/>
+  <object id="30" name="gold-mask" type="Mask" x="480" y="128" width="32" height="32"/>
+  <object id="31" name="blue-mask" type="Mask" x="480" y="176" width="32" height="32"/>
   <object id="34" type="Saw" x="288" y="128" width="32" height="32">
    <properties>
     <property name="isVertical" type="bool" value="true"/>
