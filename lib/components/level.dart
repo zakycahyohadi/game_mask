@@ -45,6 +45,11 @@ class Level extends World with HasGameRef<PixelAdventure> {
     }
   }
 
+// Add this method after _addCollisions()
+  void completeLevel() {
+    gameRef.loadNextLevel();
+  }
+
   void _spawningObjects() {
     final spawnPointsLayer = level.tileMap.getLayer<ObjectGroup>('Spawnpoints');
 
@@ -102,30 +107,36 @@ class Level extends World with HasGameRef<PixelAdventure> {
   }
 
   void _addCollisions() {
-    final collisionsLayer = level.tileMap.getLayer<ObjectGroup>('Collisions');
+  final collisionsLayer = level.tileMap.getLayer<ObjectGroup>('Collisions');
 
-    if (collisionsLayer != null) {
-      for (final collision in collisionsLayer.objects) {
-        switch (collision.class_) {
-          case 'Platform':
-            final platform = CollisionBlock(
-              position: Vector2(collision.x, collision.y),
-              size: Vector2(collision.width, collision.height),
-              isPlatform: true,
-            );
-            collisionBlocks.add(platform);
-            add(platform);
-            break;
-          default:
-            final block = CollisionBlock(
-              position: Vector2(collision.x, collision.y),
-              size: Vector2(collision.width, collision.height),
-            );
-            collisionBlocks.add(block);
-            add(block);
-        }
+  print('Collisions layer: $collisionsLayer'); // DEBUG
+  
+  if (collisionsLayer != null) {
+    print('Number of collision objects: ${collisionsLayer.objects.length}'); // DEBUG
+    
+    for (final collision in collisionsLayer.objects) {
+      switch (collision.class_) {
+        case 'Platform':
+          final platform = CollisionBlock(
+            position: Vector2(collision.x, collision.y),
+            size: Vector2(collision.width, collision.height),
+            isPlatform: true,
+          );
+          collisionBlocks.add(platform);
+          add(platform);
+          break;
+        default:
+          final block = CollisionBlock(
+            position: Vector2(collision.x, collision.y),
+            size: Vector2(collision.width, collision.height),
+          );
+          collisionBlocks.add(block);
+          add(block);
       }
     }
-    player.collisionBlocks = collisionBlocks;
+  } else {
+    print('WARNING: No Collisions layer found in $levelName!'); // DEBUG
   }
+  player.collisionBlocks = collisionBlocks;
+}
 }

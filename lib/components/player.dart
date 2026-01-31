@@ -3,8 +3,10 @@ import 'dart:async';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame_audio/flame_audio.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'
     show LogicalKeyboardKey, KeyEvent;
+import 'package:pixel_adventure/components/aura_effect.dart';
 import 'package:pixel_adventure/components/checkpoint.dart';
 import 'package:pixel_adventure/components/chicken.dart';
 import 'package:pixel_adventure/components/collision_block.dart';
@@ -13,6 +15,7 @@ import 'package:pixel_adventure/components/fruit.dart';
 import 'package:pixel_adventure/components/saw.dart';
 import 'package:pixel_adventure/components/utils.dart';
 import 'package:pixel_adventure/pixel_adventure.dart';
+import 'package:pixel_adventure/components/aura_effect.dart';
 
 enum PlayerState {
   idle,
@@ -61,6 +64,61 @@ class Player extends SpriteAnimationGroupComponent
   );
   double fixedDeltaTime = 1 / 60;
   double accumulatedTime = 0;
+
+  // Add these properties at the top of your Player class
+AuraEffect? currentAura;
+String? lastFruitCollected;
+
+// Add this method to your Player class
+void addAura(String fruitName) {
+  // Remove old aura if exists
+  if (currentAura != null) {
+    currentAura!.removeFromParent();
+  }
+
+  // Determine color based on fruit type
+  Color auraColor;
+  switch (fruitName.toLowerCase()) {
+    case 'apple':
+      auraColor = Colors.red;
+      break;
+    case 'banana':
+      auraColor = Colors.yellow;
+      break;
+    case 'cherry':
+      auraColor = const Color(0xFFFF1493); // Deep pink
+      break;
+    case 'kiwi':
+      auraColor = Colors.green;
+      break;
+    case 'orange':
+      auraColor = Colors.orange;
+      break;
+    case 'pineapple':
+      auraColor = const Color(0xFFFFD700); // Gold
+      break;
+    case 'strawberry':
+      auraColor = const Color(0xFFFF69B4); // Hot pink
+      break;
+    case 'melon':
+      auraColor = Colors.lightGreen;
+      break;
+    default:
+      auraColor = Colors.cyan;
+  }
+
+  // Create new aura
+  currentAura = AuraEffect(
+    color: auraColor,
+    duration: 5.0, // Aura lasts 5 seconds
+    size: Vector2.all(80), // Size of the aura
+  );
+
+  currentAura!.position = Vector2(width / 2, height / 2);
+  add(currentAura!);
+  
+  lastFruitCollected = fruitName;
+}
 
   @override
   FutureOr<void> onLoad() {

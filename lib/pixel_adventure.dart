@@ -23,7 +23,7 @@ class PixelAdventure extends FlameGame
   bool showControls = false;
   bool playSounds = true;
   double soundVolume = 1.0;
-  List<String> levelNames = ['Level-01', 'Level-01'];
+  List<String> levelNames = ['Level-01', 'Level-02'];
   int currentLevelIndex = 0;
 
   @override
@@ -87,33 +87,43 @@ class PixelAdventure extends FlameGame
   }
 
   void loadNextLevel() {
+    print('Loading next level. Current: $currentLevelIndex'); // DEBUG
+
+    // Remove old camera and world
+    if (cam.isMounted) {
+      cam.removeFromParent();
+    }
+
     removeWhere((component) => component is Level);
 
     if (currentLevelIndex < levelNames.length - 1) {
       currentLevelIndex++;
-      _loadLevel();
     } else {
-      // no more levels
       currentLevelIndex = 0;
-      _loadLevel();
     }
+
+    print(
+        'Next level index: $currentLevelIndex, Level name: ${levelNames[currentLevelIndex]}'); // DEBUG
+
+    _loadLevel();
   }
 
   void _loadLevel() {
-    Future.delayed(const Duration(seconds: 1), () {
-      Level world = Level(
-        player: player,
-        levelName: levelNames[currentLevelIndex],
-      );
+    // Create a new player for each level to avoid issues
+    player = Player(character: 'Mask Dude');
 
-      cam = CameraComponent.withFixedResolution(
-        world: world,
-        width: 640,
-        height: 360,
-      );
-      cam.viewfinder.anchor = Anchor.topLeft;
+    Level world = Level(
+      player: player,
+      levelName: levelNames[currentLevelIndex],
+    );
 
-      addAll([cam, world]);
-    });
+    cam = CameraComponent.withFixedResolution(
+      world: world,
+      width: 640,
+      height: 360,
+    );
+    cam.viewfinder.anchor = Anchor.topLeft;
+
+    addAll([cam, world]);
   }
 }
