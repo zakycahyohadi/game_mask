@@ -15,7 +15,7 @@ import 'package:pixel_adventure/components/fruit.dart';
 import 'package:pixel_adventure/components/saw.dart';
 import 'package:pixel_adventure/components/utils.dart';
 import 'package:pixel_adventure/pixel_adventure.dart';
-import 'package:pixel_adventure/components/aura_effect.dart';
+
 
 enum PlayerState {
   idle,
@@ -120,6 +120,8 @@ void addAura(String fruitName) {
   lastFruitCollected = fruitName;
 }
 
+
+
   @override
   FutureOr<void> onLoad() {
     _loadAllAnimations();
@@ -155,17 +157,33 @@ void addAura(String fruitName) {
 
   @override
   bool onKeyEvent(KeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
-    horizontalMovement = 0;
-    final isLeftKeyPressed = keysPressed.contains(LogicalKeyboardKey.keyA) ||
-        keysPressed.contains(LogicalKeyboardKey.arrowLeft);
-    final isRightKeyPressed = keysPressed.contains(LogicalKeyboardKey.keyD) ||
-        keysPressed.contains(LogicalKeyboardKey.arrowRight);
-
-    horizontalMovement += isLeftKeyPressed ? -1 : 0;
-    horizontalMovement += isRightKeyPressed ? 1 : 0;
-
-    hasJumped = keysPressed.contains(LogicalKeyboardKey.space);
-
+    // ═══════════════════════════════════════════════════════
+    // KEYBOARD CONTROLS - WASD + Arrow Keys
+    // ═══════════════════════════════════════════════════════
+    
+    // Check Arrow Keys
+    final isLeftArrowPressed = keysPressed.contains(LogicalKeyboardKey.arrowLeft);
+    final isRightArrowPressed = keysPressed.contains(LogicalKeyboardKey.arrowRight);
+    final isUpArrowPressed = keysPressed.contains(LogicalKeyboardKey.arrowUp);
+    
+    // Check WASD Keys
+    final isAKeyPressed = keysPressed.contains(LogicalKeyboardKey.keyA);
+    final isDKeyPressed = keysPressed.contains(LogicalKeyboardKey.keyD);
+    final isWKeyPressed = keysPressed.contains(LogicalKeyboardKey.keyW);
+    final isSpacePressed = keysPressed.contains(LogicalKeyboardKey.space);
+    
+    // Horizontal Movement (Left/Right)
+    if (isLeftArrowPressed || isAKeyPressed) {
+      horizontalMovement = -1;
+    } else if (isRightArrowPressed || isDKeyPressed) {
+      horizontalMovement = 1;
+    } else {
+      horizontalMovement = 0;
+    }
+    
+    // Jump (W, Arrow Up, or Space)
+    hasJumped = isWKeyPressed || isUpArrowPressed || isSpacePressed;
+    
     return true;
   }
 
