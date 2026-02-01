@@ -1,0 +1,29 @@
+{
+  "" : {
+    "diagnostics" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/path_provider_foundation.build/Objects-normal/arm64/path_provider_foundation-primary.dia",
+    "emit-module-dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/path_provider_foundation.build/Objects-normal/arm64/path_provider_foundation-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/path_provider_foundation.build/Objects-normal/arm64/path_provider_foundation-primary-emit-module.dia",
+    "pch" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/path_provider_foundation.build/Objects-normal/arm64/path_provider_foundation-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/path_provider_foundation.build/Objects-normal/arm64/path_provider_foundation-primary.swiftdeps"
+  },
+  "/Users/agenghadiwicaksono/.pub-cache/hosted/pub.dev/path_provider_foundation-2.3.0/darwin/Classes/PathProviderPlugin.swift" : {
+    "const-values" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/path_provider_foundation.build/Objects-normal/arm64/PathProviderPlugin.swiftconstvalues",
+    "dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/path_provider_foundation.build/Objects-normal/arm64/PathProviderPlugin.d",
+    "diagnostics" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/path_provider_foundation.build/Objects-normal/arm64/PathProviderPlugin.dia",
+    "index-unit-output-path" : "/Pods.build/Debug/path_provider_foundation.build/Objects-normal/arm64/PathProviderPlugin.o",
+    "llvm-bc" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/path_provider_foundation.build/Objects-normal/arm64/PathProviderPlugin.bc",
+    "object" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/path_provider_foundation.build/Objects-normal/arm64/PathProviderPlugin.o",
+    "swift-dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/path_provider_foundation.build/Objects-normal/arm64/PathProviderPlugin.swiftdeps",
+    "swiftmodule" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/path_provider_foundation.build/Objects-normal/arm64/PathProviderPlugin~partial.swiftmodule"
+  },
+  "/Users/agenghadiwicaksono/.pub-cache/hosted/pub.dev/path_provider_foundation-2.3.0/darwin/Classes/messages.g.swift" : {
+    "const-values" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/path_provider_foundation.build/Objects-normal/arm64/messages.g.swiftconstvalues",
+    "dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/path_provider_foundation.build/Objects-normal/arm64/messages.g.d",
+    "diagnostics" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/path_provider_foundation.build/Objects-normal/arm64/messages.g.dia",
+    "index-unit-output-path" : "/Pods.build/Debug/path_provider_foundation.build/Objects-normal/arm64/messages.g.o",
+    "llvm-bc" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/path_provider_foundation.build/Objects-normal/arm64/messages.g.bc",
+    "object" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/path_provider_foundation.build/Objects-normal/arm64/messages.g.o",
+    "swift-dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/path_provider_foundation.build/Objects-normal/arm64/messages.g.swiftdeps",
+    "swiftmodule" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/path_provider_foundation.build/Objects-normal/arm64/messages.g~partial.swiftmodule"
+  }
+}

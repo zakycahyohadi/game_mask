@@ -1,0 +1,29 @@
+{
+  "" : {
+    "diagnostics" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/gamepads_darwin.build/Objects-normal/arm64/gamepads_darwin-primary.dia",
+    "emit-module-dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/gamepads_darwin.build/Objects-normal/arm64/gamepads_darwin-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/gamepads_darwin.build/Objects-normal/arm64/gamepads_darwin-primary-emit-module.dia",
+    "pch" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/gamepads_darwin.build/Objects-normal/arm64/gamepads_darwin-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/gamepads_darwin.build/Objects-normal/arm64/gamepads_darwin-primary.swiftdeps"
+  },
+  "/Users/agenghadiwicaksono/.pub-cache/hosted/pub.dev/gamepads_darwin-0.1.2+2/macos/Classes/GamepadsDarwinPlugin.swift" : {
+    "const-values" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/gamepads_darwin.build/Objects-normal/arm64/GamepadsDarwinPlugin.swiftconstvalues",
+    "dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/gamepads_darwin.build/Objects-normal/arm64/GamepadsDarwinPlugin.d",
+    "diagnostics" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/gamepads_darwin.build/Objects-normal/arm64/GamepadsDarwinPlugin.dia",
+    "index-unit-output-path" : "/Pods.build/Debug/gamepads_darwin.build/Objects-normal/arm64/GamepadsDarwinPlugin.o",
+    "llvm-bc" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/gamepads_darwin.build/Objects-normal/arm64/GamepadsDarwinPlugin.bc",
+    "object" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/gamepads_darwin.build/Objects-normal/arm64/GamepadsDarwinPlugin.o",
+    "swift-dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/gamepads_darwin.build/Objects-normal/arm64/GamepadsDarwinPlugin.swiftdeps",
+    "swiftmodule" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/gamepads_darwin.build/Objects-normal/arm64/GamepadsDarwinPlugin~partial.swiftmodule"
+  },
+  "/Users/agenghadiwicaksono/.pub-cache/hosted/pub.dev/gamepads_darwin-0.1.2+2/macos/Classes/GamepadsListener.swift" : {
+    "const-values" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/gamepads_darwin.build/Objects-normal/arm64/GamepadsListener.swiftconstvalues",
+    "dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/gamepads_darwin.build/Objects-normal/arm64/GamepadsListener.d",
+    "diagnostics" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/gamepads_darwin.build/Objects-normal/arm64/GamepadsListener.dia",
+    "index-unit-output-path" : "/Pods.build/Debug/gamepads_darwin.build/Objects-normal/arm64/GamepadsListener.o",
+    "llvm-bc" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/gamepads_darwin.build/Objects-normal/arm64/GamepadsListener.bc",
+    "object" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/gamepads_darwin.build/Objects-normal/arm64/GamepadsListener.o",
+    "swift-dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/gamepads_darwin.build/Objects-normal/arm64/GamepadsListener.swiftdeps",
+    "swiftmodule" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/gamepads_darwin.build/Objects-normal/arm64/GamepadsListener~partial.swiftmodule"
+  }
+}

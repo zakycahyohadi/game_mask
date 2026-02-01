@@ -1,0 +1,59 @@
+{
+  "" : {
+    "diagnostics" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/audioplayers_darwin-primary.dia",
+    "emit-module-dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/audioplayers_darwin-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/audioplayers_darwin-primary-emit-module.dia",
+    "pch" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/audioplayers_darwin-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/audioplayers_darwin-primary.swiftdeps"
+  },
+  "/Users/agenghadiwicaksono/.pub-cache/hosted/pub.dev/audioplayers_darwin-6.3.0/darwin/audioplayers_darwin/Sources/audioplayers_darwin/AudioContext.swift" : {
+    "const-values" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioContext.swiftconstvalues",
+    "dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioContext.d",
+    "diagnostics" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioContext.dia",
+    "index-unit-output-path" : "/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioContext.o",
+    "llvm-bc" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioContext.bc",
+    "object" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioContext.o",
+    "swift-dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioContext.swiftdeps",
+    "swiftmodule" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioContext~partial.swiftmodule"
+  },
+  "/Users/agenghadiwicaksono/.pub-cache/hosted/pub.dev/audioplayers_darwin-6.3.0/darwin/audioplayers_darwin/Sources/audioplayers_darwin/AudioPlayerError.swift" : {
+    "const-values" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioPlayerError.swiftconstvalues",
+    "dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioPlayerError.d",
+    "diagnostics" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioPlayerError.dia",
+    "index-unit-output-path" : "/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioPlayerError.o",
+    "llvm-bc" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioPlayerError.bc",
+    "object" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioPlayerError.o",
+    "swift-dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioPlayerError.swiftdeps",
+    "swiftmodule" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioPlayerError~partial.swiftmodule"
+  },
+  "/Users/agenghadiwicaksono/.pub-cache/hosted/pub.dev/audioplayers_darwin-6.3.0/darwin/audioplayers_darwin/Sources/audioplayers_darwin/AudioplayersDarwinPlugin.swift" : {
+    "const-values" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioplayersDarwinPlugin.swiftconstvalues",
+    "dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioplayersDarwinPlugin.d",
+    "diagnostics" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioplayersDarwinPlugin.dia",
+    "index-unit-output-path" : "/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioplayersDarwinPlugin.o",
+    "llvm-bc" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioplayersDarwinPlugin.bc",
+    "object" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioplayersDarwinPlugin.o",
+    "swift-dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioplayersDarwinPlugin.swiftdeps",
+    "swiftmodule" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/AudioplayersDarwinPlugin~partial.swiftmodule"
+  },
+  "/Users/agenghadiwicaksono/.pub-cache/hosted/pub.dev/audioplayers_darwin-6.3.0/darwin/audioplayers_darwin/Sources/audioplayers_darwin/Utils.swift" : {
+    "const-values" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/Utils.swiftconstvalues",
+    "dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/Utils.d",
+    "diagnostics" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/Utils.dia",
+    "index-unit-output-path" : "/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/Utils.o",
+    "llvm-bc" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/Utils.bc",
+    "object" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/Utils.o",
+    "swift-dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/Utils.swiftdeps",
+    "swiftmodule" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/Utils~partial.swiftmodule"
+  },
+  "/Users/agenghadiwicaksono/.pub-cache/hosted/pub.dev/audioplayers_darwin-6.3.0/darwin/audioplayers_darwin/Sources/audioplayers_darwin/WrappedMediaPlayer.swift" : {
+    "const-values" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/WrappedMediaPlayer.swiftconstvalues",
+    "dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/WrappedMediaPlayer.d",
+    "diagnostics" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/WrappedMediaPlayer.dia",
+    "index-unit-output-path" : "/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/WrappedMediaPlayer.o",
+    "llvm-bc" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/WrappedMediaPlayer.bc",
+    "object" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/WrappedMediaPlayer.o",
+    "swift-dependencies" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/WrappedMediaPlayer.swiftdeps",
+    "swiftmodule" : "/Users/agenghadiwicaksono/game_mask/build/macos/Build/Intermediates.noindex/Pods.build/Debug/audioplayers_darwin.build/Objects-normal/arm64/WrappedMediaPlayer~partial.swiftmodule"
+  }
+}

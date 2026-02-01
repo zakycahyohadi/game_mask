@@ -1,0 +1,4 @@
+
+module gamepads_darwin.__Swift {
+  exclude header "gamepads_darwin-Swift.h"
+}

@@ -1,0 +1,5 @@
+
+module gamepads_darwin.Swift {
+  header "gamepads_darwin-Swift.h"
+  requires objc
+}
