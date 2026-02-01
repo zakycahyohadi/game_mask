@@ -73,23 +73,29 @@ class FightingLevel extends World {
     }
   }
 
-  // Set positions with fallback
+  // Set positions with fallback - ensure both players spawn above ground
   if (player1Spawn != null) {
     player1.position = player1Spawn;
     player1.scale.x = 1;
   } else {
-    player1.position = Vector2(100, 270); // Safe position above ground
+    // Default position: x=100, y=270 (above ground at y=304)
+    player1.position = Vector2(100, 270);
     print('Using default position for player 1: ${player1.position}');
   }
+  // Reset velocity to prevent falling before collision blocks are set
+  player1.position = Vector2(player1.position.x, player1.position.y);
   add(player1);
 
   if (player2Spawn != null) {
     player2.position = player2Spawn;
     player2.scale.x = -1;
   } else {
-    player2.position = Vector2(500, 270); // Safe position above ground
+    // Default position: x=500, y=270 (above ground at y=304)
+    player2.position = Vector2(500, 270);
     print('Using default position for player 2: ${player2.position}');
   }
+  // Reset velocity to prevent falling before collision blocks are set
+  player2.position = Vector2(player2.position.x, player2.position.y);
   add(player2);
 
   _autoSpawnMasks();
@@ -98,21 +104,28 @@ class FightingLevel extends World {
   void _autoSpawnMasks() {
     final redMask = Mask(
       mask: 'red-mask',
-      position: Vector2(200, 200),
+      position: Vector2(150, 200),
       size: Vector2(32, 32),
     );
     add(redMask);
 
+    final greenMask = Mask(
+      mask: 'green-mask',
+      position: Vector2(250, 200),
+      size: Vector2(32, 32),
+    );
+    add(greenMask);
+
     final goldMask = Mask(
       mask: 'gold-mask',
-      position: Vector2(400, 150),
+      position: Vector2(350, 200),
       size: Vector2(32, 32),
     );
     add(goldMask);
 
     final blueMask = Mask(
       mask: 'blue-mask',
-      position: Vector2(300, 250),
+      position: Vector2(450, 200),
       size: Vector2(32, 32),
     );
     add(blueMask);
@@ -160,8 +173,14 @@ class FightingLevel extends World {
   print('Player 2 position: ${player2.position}');
   print('======================');
   
+  // CRITICAL: Assign collision blocks to both players
+  // This must be done after collision blocks are created
   player1.collisionBlocks = collisionBlocks;
   player2.collisionBlocks = collisionBlocks;
+  
+  // Ensure both players are initialized on ground
+  // This prevents them from falling before collision detection works
+  _initializePlayersOnGround();
 }
 
 // Add fallback ground if no collisions in map
@@ -196,5 +215,29 @@ void _addDefaultGround() {
   add(rightWall);
   
   print('Default ground added at y=304');
+}
+
+// Initialize players on ground to prevent falling
+void _initializePlayersOnGround() {
+  // Find the ground level (lowest collision block that's not a platform or wall)
+  double groundLevel = 304.0; // Default ground level
+  
+  for (final block in collisionBlocks) {
+    if (!block.isPlatform && block.y + block.height > groundLevel) {
+      groundLevel = block.y + block.height;
+    }
+  }
+  
+  // Ensure Player 1 is on ground
+  if (player1.position.y > groundLevel - 20) {
+    player1.position = Vector2(player1.position.x, groundLevel - 16);
+    print('Player 1 adjusted to ground level: ${player1.position}');
+  }
+  
+  // Ensure Player 2 is on ground
+  if (player2.position.y > groundLevel - 20) {
+    player2.position = Vector2(player2.position.x, groundLevel - 16);
+    print('Player 2 adjusted to ground level: ${player2.position}');
+  }
 }
 }

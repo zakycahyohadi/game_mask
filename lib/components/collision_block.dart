@@ -12,18 +12,8 @@ class CollisionBlock extends PositionComponent {
           position: position,
           size: size,
         ) {
-    debugMode = true; // AKTIFKAN INI untuk melihat collision boxes
+    debugMode = false; // Disabled - no coordinate lines
   }
 
-  @override
-  void render(Canvas canvas) {
-    // Draw collision boxes
-    final paint = Paint()
-      ..color = isPlatform ? Colors.yellow.withOpacity(0.5) : Colors.red.withOpacity(0.5)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 2;
-    
-    canvas.drawRect(size.toRect(), paint);
-    super.render(canvas);
-  }
+  // Removed custom render to hide collision boxes and coordinate lines
 }
