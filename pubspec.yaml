@@ -72,6 +72,7 @@ flutter:
     - assets/images/Background/
     - assets/images/Terrain/
     - assets/images/HUD/
+    - assets/images/splash/
     - assets/images/Traps/Saw/
     - assets/images/Items/Checkpoints/Checkpoint/
     - assets/images/Items/mask/

@@ -12,6 +12,7 @@ import 'package:pixel_adventure/components/collision_block.dart';
 import 'package:pixel_adventure/components/mask.dart';
 import 'package:pixel_adventure/components/fighting_level.dart';
 import 'package:pixel_adventure/components/character_selection.dart';
+import 'package:pixel_adventure/components/splash_screen.dart';
 
 class PixelFightingGame extends FlameGame
     with HasKeyboardHandlerComponents, HasCollisionDetection {
@@ -52,8 +53,8 @@ class PixelFightingGame extends FlameGame
     // Initialize gamepad support for Player 2 (PS4 Controller)
     _initGamepad();
 
-    // Show character selection first
-    _showCharacterSelection();
+    // Show splash screen first, then character selection
+    _showSplashScreen();
 
     return super.onLoad();
   }
@@ -67,15 +68,15 @@ class PixelFightingGame extends FlameGame
   
   void _initGamepad() {
     _gamepadSubscription = Gamepads.events.listen((event) {
-      // 🎮 GAMEPAD KHUSUS PLAYER 1 (HUMAN PLAYER)
-      // ==========================================
-      // P1 dikontrol dengan PS controller
-      // P2 adalah COMPUTER (AI) - tidak perlu gamepad
+      // 🎮 GAMEPAD KHUSUS PLAYER 2 (PS4 CONTROLLER)
+      // ============================================
+      // P1 dikontrol dengan KEYBOARD LAPTOP
+      // P2 dikontrol dengan PS4 CONTROLLER (stick)
       
       if (!characterSelectionDone || gameOver) return;
       
-      // PASTIKAN: Hanya player1 yang dikontrol dengan gamepad
-      // Player2 adalah computer/AI - tidak perlu input gamepad
+      // PASTIKAN: Hanya player2 yang dikontrol dengan gamepad
+      // Player1 dikontrol dengan keyboard laptop
 
       // JUMP (X / Cross) - support double jump
       if (event.value > 0.5 &&
@@ -86,7 +87,7 @@ class PixelFightingGame extends FlameGame
            event.key.toLowerCase().contains('cross') ||
            event.key.toLowerCase().contains('x'))) {
         // Allow jump if on ground or can double jump (handled in PixelFighter)
-        player1.hasJumped = true;
+        player2.hasJumped = true;
       }
 
       // SHOOT (R2 ONLY) - hanya R2 untuk shoot
@@ -105,8 +106,8 @@ class PixelFightingGame extends FlameGame
             event.key.toLowerCase().contains('right')));
       
       if (isR2Pressed) {
-        if (player1.shootCooldown <= 0 && player1.ammo > 0) {
-          player1.shoot();
+        if (player2.shootCooldown <= 0 && player2.ammo > 0) {
+          player2.shoot();
         }
       }
 
@@ -119,15 +120,15 @@ class PixelFightingGame extends FlameGame
           event.key == 'left.joystick.x' ||
           (event.key.startsWith('axis') && !event.key.contains('yAxis') && !event.key.contains('y'))) {
         if (event.value > 0.2) {
-          player1.isMovingRight = true;
-          player1.isMovingLeft = false;
+          player2.isMovingRight = true;
+          player2.isMovingLeft = false;
         } else if (event.value < -0.2) {
-          player1.isMovingLeft = true;
-          player1.isMovingRight = false;
+          player2.isMovingLeft = true;
+          player2.isMovingRight = false;
         } else {
           // Dead zone - stop movement when stick is centered
-          player1.isMovingLeft = false;
-          player1.isMovingRight = false;
+          player2.isMovingLeft = false;
+          player2.isMovingRight = false;
         }
       }
       
@@ -137,10 +138,10 @@ class PixelFightingGame extends FlameGame
           event.key == 'dpad.left' ||
           event.key.toLowerCase().contains('arrow.left')) {
         if (event.value > 0.5) {
-          player1.isMovingLeft = true;
-          player1.isMovingRight = false;
+          player2.isMovingLeft = true;
+          player2.isMovingRight = false;
         } else {
-          player1.isMovingLeft = false;
+          player2.isMovingLeft = false;
         }
       }
       
@@ -150,18 +151,28 @@ class PixelFightingGame extends FlameGame
           event.key == 'dpad.right' ||
           event.key.toLowerCase().contains('arrow.right')) {
         if (event.value > 0.5) {
-          player1.isMovingRight = true;
-          player1.isMovingLeft = false;
+          player2.isMovingRight = true;
+          player2.isMovingLeft = false;
         } else {
-          player1.isMovingRight = false;
+          player2.isMovingRight = false;
         }
       }
     });
   }
   
+  void _showSplashScreen() {
+    final splashScreen = SplashScreen();
+    add(splashScreen);
+  }
+  
   void _showCharacterSelection() {
     final selectionScreen = CharacterSelectionScreen();
     add(selectionScreen);
+  }
+  
+  // Public method untuk dipanggil dari splash screen
+  void showCharacterSelection() {
+    _showCharacterSelection();
   }
   
   void startGameWithCharacters(String char1, String char2) {
@@ -186,9 +197,8 @@ class PixelFightingGame extends FlameGame
       position: Vector2(500, 100), // Will be set by spawn point
     );
 
-    // Set P1 sebagai target untuk AI (P2)
-    // AI akan auto attack P1
-    player2.setTargetPlayer(player1);
+    // P1 vs P2 mode - tidak ada AI
+    // P1 dikontrol dengan keyboard, P2 dikontrol dengan PS4 controller
 
     // Create fighting level (uses Tiled map)
     FightingLevel fightingLevel = FightingLevel(
@@ -400,33 +410,7 @@ class PixelFightingGame extends FlameGame
     cam.viewport.add(player2ShieldText);
 
     // Controls text - more visible and clear
-    final controlsP1 = TextComponent(
-      text: 'PLAYER 1 (PS Controller): Analog/Arrow = Move | X = Jump | R2 = Shoot',
-      position: Vector2(320, 320),
-      anchor: Anchor.center,
-      textRenderer: TextPaint(
-        style: const TextStyle(
-          color: Color(0xFF0088FF),
-          fontSize: 11,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    );
-    cam.viewport.add(controlsP1);
-    
-    final controlsP2 = TextComponent(
-      text: 'PLAYER 2 (COMPUTER): AI - Automatic',
-      position: Vector2(320, 340),
-      anchor: Anchor.center,
-      textRenderer: TextPaint(
-        style: const TextStyle(
-          color: Color(0xFFFF0000),
-          fontSize: 11,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    );
-    cam.viewport.add(controlsP2);
+    // Teks instruksi dihapus sesuai permintaan user
   }
 
   @override
@@ -536,14 +520,55 @@ class PixelFightingGame extends FlameGame
     }
     
     // ═══════════════════════════════════════════════════════
-    // NO KEYBOARD CONTROLS
+    // KEYBOARD KHUSUS PLAYER 1 (LAPTOP)
     // =======================================================
-    // P1 dikontrol dengan PS controller (gamepad)
-    // P2 adalah COMPUTER (AI) - tidak perlu keyboard
+    // P1 dikontrol dengan KEYBOARD LAPTOP
+    // P2 dikontrol dengan PS4 CONTROLLER (stick)
     // ═══════════════════════════════════════════════════════
     
-    // Tidak ada keyboard controls - semua kontrol via gamepad untuk P1
-    // P2 adalah computer/AI yang dikontrol otomatis
+    // Handle Player 1 keyboard controls
+    if (characterSelectionDone && !gameOver) {
+      try {
+        // Player 1: Keyboard controls (Laptop)
+        // A = Move Left, D = Move Right, W = Shoot, Space = Jump
+        final moveLeft = keysPressed.contains(LogicalKeyboardKey.keyA);
+        final moveRight = keysPressed.contains(LogicalKeyboardKey.keyD);
+        
+        // Update movement state - check if player1 is initialized
+        // HANYA player1 yang bisa dikontrol dengan keyboard
+        if (player1.isMounted) {
+          player1.isMovingLeft = moveLeft;
+          player1.isMovingRight = moveRight;
+          
+          // Handle jump - trigger on key down only (supports double jump)
+          if (event is KeyDownEvent && event.logicalKey == LogicalKeyboardKey.space) {
+            // Allow jump if on ground or can double jump (handled in PixelFighter)
+            player1.hasJumped = true;
+          }
+          
+          // Handle shooting - only on key down to prevent spam
+          if (event is KeyDownEvent && 
+              event.logicalKey == LogicalKeyboardKey.keyW &&
+              player1.shootCooldown <= 0 && 
+              player1.ammo > 0) {
+            player1.shoot();
+          }
+        }
+        
+        // PASTIKAN: player2 TIDAK menerima input keyboard
+        // Player2 dikontrol dengan PS4 controller
+        
+        // If it's a Player 1 key, mark as handled
+        if (moveLeft || moveRight || 
+            keysPressed.contains(LogicalKeyboardKey.keyW) ||
+            keysPressed.contains(LogicalKeyboardKey.space)) {
+          return KeyEventResult.handled; // Event sudah di-handle untuk P1
+        }
+      } catch (e) {
+        // Player1 might not be initialized yet, ignore
+        print('Keyboard event error: $e');
+      }
+    }
     
     // Pass other keyboard events to children
     return super.onKeyEvent(event, keysPressed);

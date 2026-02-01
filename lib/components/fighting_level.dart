@@ -102,33 +102,110 @@ class FightingLevel extends World {
 }
 
   void _autoSpawnMasks() {
-    final redMask = Mask(
+    // Topeng tersebar di berbagai lokasi di map
+    // Posisi bervariasi untuk membuat game lebih menarik
+    
+    // Red Masks - tersebar di berbagai lokasi
+    final redMask1 = Mask(
       mask: 'red-mask',
-      position: Vector2(150, 200),
+      position: Vector2(80, 200),
       size: Vector2(32, 32),
     );
-    add(redMask);
+    add(redMask1);
+    
+    final redMask2 = Mask(
+      mask: 'red-mask',
+      position: Vector2(200, 150),
+      size: Vector2(32, 32),
+    );
+    add(redMask2);
+    
+    final redMask3 = Mask(
+      mask: 'red-mask',
+      position: Vector2(400, 180),
+      size: Vector2(32, 32),
+    );
+    add(redMask3);
+    
+    final redMask4 = Mask(
+      mask: 'red-mask',
+      position: Vector2(550, 220),
+      size: Vector2(32, 32),
+    );
+    add(redMask4);
 
-    final greenMask = Mask(
+    // Green Masks - tersebar di berbagai lokasi
+    final greenMask1 = Mask(
       mask: 'green-mask',
-      position: Vector2(250, 200),
+      position: Vector2(120, 250),
       size: Vector2(32, 32),
     );
-    add(greenMask);
+    add(greenMask1);
+    
+    final greenMask2 = Mask(
+      mask: 'green-mask',
+      position: Vector2(280, 200),
+      size: Vector2(32, 32),
+    );
+    add(greenMask2);
+    
+    final greenMask3 = Mask(
+      mask: 'green-mask',
+      position: Vector2(480, 160),
+      size: Vector2(32, 32),
+    );
+    add(greenMask3);
 
-    final goldMask = Mask(
+    // Gold Masks - tersebar di berbagai lokasi
+    final goldMask1 = Mask(
       mask: 'gold-mask',
-      position: Vector2(350, 200),
+      position: Vector2(160, 180),
       size: Vector2(32, 32),
     );
-    add(goldMask);
+    add(goldMask1);
+    
+    final goldMask2 = Mask(
+      mask: 'gold-mask',
+      position: Vector2(320, 240),
+      size: Vector2(32, 32),
+    );
+    add(goldMask2);
+    
+    final goldMask3 = Mask(
+      mask: 'gold-mask',
+      position: Vector2(520, 200),
+      size: Vector2(32, 32),
+    );
+    add(goldMask3);
 
-    final blueMask = Mask(
+    // Blue Masks - tersebar di berbagai lokasi
+    final blueMask1 = Mask(
       mask: 'blue-mask',
-      position: Vector2(450, 200),
+      position: Vector2(240, 220),
       size: Vector2(32, 32),
     );
-    add(blueMask);
+    add(blueMask1);
+    
+    final blueMask2 = Mask(
+      mask: 'blue-mask',
+      position: Vector2(360, 190),
+      size: Vector2(32, 32),
+    );
+    add(blueMask2);
+    
+    final blueMask3 = Mask(
+      mask: 'blue-mask',
+      position: Vector2(440, 250),
+      size: Vector2(32, 32),
+    );
+    add(blueMask3);
+    
+    final blueMask4 = Mask(
+      mask: 'blue-mask',
+      position: Vector2(580, 180),
+      size: Vector2(32, 32),
+    );
+    add(blueMask4);
   }
 
   void _addCollisions() {

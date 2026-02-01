@@ -272,25 +272,42 @@ class PixelFighter extends SpriteAnimationGroupComponent<PixelFighterState>
   bool onKeyEvent(KeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
     if (playerIndex == 1) {
       // ═══════════════════════════════════════════════════════
-      // PLAYER 1: PS CONTROLLER ONLY
+      // PLAYER 1: KEYBOARD LAPTOP
       // =======================================================
-      // P1 dikontrol dengan PS controller (gamepad)
-      // P1 TIDAK bisa dikontrol dengan keyboard
+      // P1 dikontrol dengan keyboard laptop
+      // A = Move Left, D = Move Right, W = Shoot, Space = Jump
+      // ═══════════════════════════════════════════════════════
+      
+      // Player 1: Keyboard controls (Laptop)
+      _isMovingLeft = keysPressed.contains(LogicalKeyboardKey.keyA);
+      _isMovingRight = keysPressed.contains(LogicalKeyboardKey.keyD);
+
+      // Handle jump - trigger on key down only (supports double jump)
+      if (event is KeyDownEvent && event.logicalKey == LogicalKeyboardKey.space) {
+        // Allow jump if on ground or can double jump (handled in update)
+        _hasJumped = true;
+      }
+
+      // Handle shooting - only on key down to prevent spam
+      if (event is KeyDownEvent && 
+          event.logicalKey == LogicalKeyboardKey.keyW &&
+          _shootCooldown <= 0 && 
+          _ammo > 0) {
+        _shoot();
+      }
+
+      return true; // Always return true to consume keyboard events for P1
+    } else {
+      // ═══════════════════════════════════════════════════════
+      // PLAYER 2: PS4 CONTROLLER
+      // =======================================================
+      // P2 dikontrol dengan PS4 controller (gamepad)
+      // P2 TIDAK bisa dikontrol dengan keyboard
       // All controls handled by gamepad in PixelFightingGame._initGamepad()
       // ═══════════════════════════════════════════════════════
       
-      // Player 1: Uses PS Controller (gamepad) - NO keyboard controls
-      return false; // Don't handle keyboard events for player 1
-    } else {
-      // ═══════════════════════════════════════════════════════
-      // PLAYER 2: COMPUTER (AI)
-      // =======================================================
-      // P2 adalah computer/AI - tidak perlu keyboard atau gamepad
-      // AI controls handled automatically in update() method
-      // ═══════════════════════════════════════════════════════
-      
-      // Player 2: Computer/AI - NO keyboard controls
-      return false; // Don't handle keyboard events for computer player
+      // Player 2: Uses PS4 Controller (gamepad) - NO keyboard controls
+      return false; // Don't handle keyboard events for player 2
     }
   }
   
@@ -465,90 +482,8 @@ class PixelFighter extends SpriteAnimationGroupComponent<PixelFighterState>
       }
     }
 
-    // AI LOGIC FOR COMPUTER PLAYER (playerIndex == 2) - AUTO CHASE & ATTACK P1
-    if (playerIndex == 2 && _targetPlayer != null && _targetPlayer!.isAlive) {
-      _aiTimer += dt;
-      _aiShootTimer += dt;
-      _aiJumpTimer += dt;
-
-      // Get target (P1) position
-      final targetPos = _targetPlayer!.position;
-      final myPos = position;
-      final distanceX = (targetPos.x - myPos.x).abs();
-      final distance = (targetPos - myPos).length;
-      final directionToTarget = targetPos.x - myPos.x;
-
-      // ═══════════════════════════════════════════════════════
-      // AI CHASE LOGIC - GERAK MAJU MUNDUR UNTUK NGEJAR P1
-      // =======================================================
-      // AI akan bergerak maju mundur untuk mengejar P1 dengan efektif
-      
-      // Selalu menghadap ke arah P1
-      if (directionToTarget > 0) {
-        scale.x = 1; // Face right (menghadap P1)
-      } else {
-        scale.x = -1; // Face left (menghadap P1)
-      }
-
-      // Chase P1 - bergerak maju (mendekati P1)
-      if (distanceX > 15) {
-        // Jika P1 di kanan, move right (maju ke kanan)
-        if (directionToTarget > 0) {
-          _isMovingRight = true;
-          _isMovingLeft = false;
-        } 
-        // Jika P1 di kiri, move left (maju ke kiri)
-        else {
-          _isMovingLeft = true;
-          _isMovingRight = false;
-        }
-      } 
-      // Jika sudah cukup dekat, bisa mundur sedikit untuk positioning
-      else if (distanceX < 8) {
-        // Mundur sedikit untuk mendapatkan jarak yang lebih baik
-        if (directionToTarget > 0) {
-          _isMovingLeft = true; // Mundur ke kiri
-          _isMovingRight = false;
-        } else {
-          _isMovingRight = true; // Mundur ke kanan
-          _isMovingLeft = false;
-        }
-      }
-      // Jarak optimal, stop moving
-      else {
-        _isMovingLeft = false;
-        _isMovingRight = false;
-      }
-
-      // ═══════════════════════════════════════════════════════
-      // AI ATTACK LOGIC - AUTO SHOOT KE ARAH P1
-      // =======================================================
-      // AI akan menembak P1 ketika dalam jangkauan
-      if (distance < _attackRange && _shootCooldown <= 0 && _ammo > 0) {
-        // Shoot lebih agresif dan sering
-        if (_aiShootTimer >= _aiShootInterval) {
-          _aiShootTimer = 0;
-          _shoot(); // Auto attack P1
-        }
-      }
-
-      // ═══════════════════════════════════════════════════════
-      // AI JUMP LOGIC - JUMP UNTUK ATTACK/CHASE
-      // =======================================================
-      // AI akan jump untuk mengejar atau menyerang P1
-      if (_isOnGround) {
-        // Jump ketika dekat dengan target untuk attack
-        if (distance < _closeRange && _aiJumpTimer >= 0.3) {
-          _aiJumpTimer = 0;
-          _hasJumped = true; // Jump attack ketika dekat
-        } 
-        // Jump secara periodik untuk chase
-        else if (_aiJumpTimer >= _aiJumpInterval) {
-          _aiJumpTimer = 0;
-          _hasJumped = true; // Jump untuk chase
-        }
-      }
-    }
+    // P1 vs P2 mode - tidak ada AI logic
+    // P1 dikontrol dengan keyboard, P2 dikontrol dengan PS4 controller
 
       // Jump - support double jump
       if (_hasJumped) {
